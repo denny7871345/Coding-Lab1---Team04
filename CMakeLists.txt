@@ -3,11 +3,15 @@
 # ! If you don't know CMake well DO NOT touch this file                !
 # ! ------------------------------------------------------------------ !
 
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.20)
 project(OOP VERSION 0.1.0)
 enable_testing()
 
 set(CMAKE_CXX_STANDARD 17)
+
+# Custom coverage CMAKE_BUILD_TYPE
+set(CMAKE_C_FLAGS_COVERAGE "--coverage -g -O0")
+set(CMAKE_CXX_FLAGS_COVERAGE "--coverage -g -O0")
 
 #### GTest
 # reference: https://google.github.io/googletest/quickstart-cmake.html
