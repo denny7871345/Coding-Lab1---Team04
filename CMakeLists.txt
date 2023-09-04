@@ -9,9 +9,6 @@ enable_testing()
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Custom coverage CMAKE_BUILD_TYPE
-set(CMAKE_C_FLAGS_COVERAGE "--coverage -g -O0")
-set(CMAKE_CXX_FLAGS_COVERAGE "--coverage -g -O0")
 
 #### GTest
 # reference: https://google.github.io/googletest/quickstart-cmake.html
@@ -41,7 +38,33 @@ set(MEMORYCHECK_COMMAND_OPTIONS
 )
 include(CTest)
 
-message(${COVERAGE_EXTRA_FLAGS})
+option(COVERAGE "Enable coverage" OFF)
+
+if(COVERAGE)
+    option(BUILD_DIR "")
+    set(CMAKE_C_FLAGS "--coverage -g -O0")
+    set(CMAKE_CXX_FLAGS "--coverage -g -O0")
+
+    include(scripts/CodeCoverage.cmake)
+    set(CODE_COVERAGE_VERBOSE ON)
+    set(COVERAGE_EXCLUDE
+        ${CMAKE_BINARY_DIR}/_deps/*
+        ${PROJECT_SOURCE_DIR}/test/*
+    )
+
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        set(GCOVR_ADDITIONAL_ARGS
+            --gcov-executable "llvm-cov gcov"
+        )
+    endif()
+
+    append_coverage_compiler_flags()
+    setup_target_for_coverage_gcovr_html(
+        NAME ut_all_coverage
+        DEPENDENCIES ut_all
+        EXCLUDE ${COVERAGE_EXCLUDE}
+    )
+endif()
 
 add_executable(ut_all
     ${SRC_FILES}
