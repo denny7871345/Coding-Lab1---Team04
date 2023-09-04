@@ -8,7 +8,7 @@
 : ${CC:=gcc}
 : ${CXX:=g++}
 
-BUILD_DIR=cov_build
+BUILD_DIR=coverage_build
 
 cmake \
     -B $BUILD_DIR \

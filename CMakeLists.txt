@@ -35,6 +35,14 @@ list(TRANSFORM SRC_FILES PREPEND ${SRC_DIR}/)
 list(TRANSFORM INCLUDE_FILES PREPEND ${INCLUDE_DIR}/)
 list(TRANSFORM TEST_FILES PREPEND ${TEST_DIR}/)
 
+find_program(MEMORYCHECK_COMMAND valgrind)
+set(MEMORYCHECK_COMMAND_OPTIONS
+    "--error-exitcode=1 --track-origins=yes --leak-check=full"
+)
+include(CTest)
+
+message(${COVERAGE_EXTRA_FLAGS})
+
 add_executable(ut_all
     ${SRC_FILES}
     ${INCLUDE_FILES}
