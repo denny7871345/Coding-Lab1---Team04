@@ -41,7 +41,6 @@ include(CTest)
 option(COVERAGE "Enable coverage" OFF)
 
 if(COVERAGE)
-    option(BUILD_DIR "")
     set(CMAKE_C_FLAGS "--coverage -g -O0")
     set(CMAKE_CXX_FLAGS "--coverage -g -O0")
 
