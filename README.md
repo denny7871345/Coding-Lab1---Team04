@@ -13,3 +13,5 @@
 * valgrind
 * gcovr
 * llvm (for llvm-cov if using clang)
+
+For a more detailed explanation see https://hackmd.io/@OOP2023f/rk2-8cVCh
