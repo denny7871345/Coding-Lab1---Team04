@@ -65,6 +65,16 @@ if(COVERAGE)
     )
 endif()
 
+if(MSVC)
+    set(TARGET_COMPILER_OPTIONS
+        /W4
+    )
+else()
+    set(TARGET_COMPILER_OPTIONS
+        -Wall -pedantic
+    )
+endif()
+
 add_executable(ut_all
     ${SRC_FILES}
     ${INCLUDE_FILES}
@@ -77,7 +87,7 @@ target_include_directories(ut_all PRIVATE
     ${INCLUDE_DIR}
 )
 target_compile_options(ut_all PRIVATE
-    -Wall -pedantic
+    ${TARGET_COMPILER_OPTIONS}
 )
 include(GoogleTest)
 gtest_discover_tests(ut_all)
