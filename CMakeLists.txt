@@ -24,6 +24,7 @@ if(FETCH_GOOGLETEST)
     set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
     FetchContent_MakeAvailable(googletest)
 else()
+    message("Using custom googletest installation")
     # reference: https://cmake.org/cmake/help/latest/module/FindGTest.html
     find_package(GTest REQUIRED)
 endif()
