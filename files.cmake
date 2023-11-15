@@ -1,12 +1,14 @@
 set(SRC_FILES
-    hello.cpp
+    main.cpp
 )
 
 set(INCLUDE_FILES
-    hello.hpp
+    Color.h
+    ElectiveSubject.h
+    RequiredSubject.h
+    Subject.h
+    TablePrinter.h
 )
 
 set(TEST_FILES
-    ut_sanity_check.cpp
-    ut_hello.cpp
 )
