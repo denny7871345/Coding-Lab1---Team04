@@ -16,6 +16,7 @@ int main() {
     scoreSystem.AddCourse(std::shared_ptr<Subject>(new ElectiveSubject("Network Programming", {23, 28, 33})));
 
 
+
     scoreSystem.Print();
     std::cout << "RequireCredit:" << scoreSystem.GetRequiredCredit() << std::endl << "Eletive:" << scoreSystem.GetElectiveCredit() << std::endl ;
 }
