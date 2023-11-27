@@ -8,6 +8,7 @@ set(INCLUDE_FILES
     RequiredSubject.h
     Subject.h
     TablePrinter.h
+    ScoreSystem.h
 )
 
 set(TEST_FILES

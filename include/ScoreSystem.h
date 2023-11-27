@@ -23,6 +23,28 @@ public:
         TablePrinter tablePrinter(courses);
         tablePrinter.Print();
     }
+
+    int GetRequiredCredit(){
+        int score=0;
+        for(int i=0;i<this->courses.size();i++){
+            if(courses[i]->GetType() == "Required Subject"){
+                score += courses[i]->GetCredit();
+            }
+        }
+        return score;
+    }
+
+    int GetElectiveCredit(){
+        int score=0;
+        for(int i=0;i<this->courses.size();i++){
+            if(courses[i]->GetType() == "Elective Subject"){
+                score += courses[i]->GetCredit();
+            }
+        }
+        return score;
+    }
+
+
 };
 
 #endif // OOP_SCORESYSTEM_H

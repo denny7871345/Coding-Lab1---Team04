@@ -4,7 +4,7 @@
 
 #ifndef OOP_COLOR_H
 #define OOP_COLOR_H
-
+#include<vector>
 #include "string"
 
 class Color {

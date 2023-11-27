@@ -12,13 +12,9 @@
 
 class ElectiveSubject : public Subject {
 private:
-    std::string type = "Elective Subject";
 public:
     ElectiveSubject(std::string name, std::vector<int> time) : Subject(name, time) {
-
-    }
-    std::string GetType() override {
-        return type;
+        this->type = "Elective Subject";
     }
     std::string GetColor() override {
         return Color::BLUE;

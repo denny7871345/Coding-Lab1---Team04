@@ -11,16 +11,15 @@
 #include "Subject.h"
 
 class RequiredSubject : public Subject {
-private:
-    std::string type = "Required Subject";
 public:
     RequiredSubject(std::string name, std::vector<int> time) : Subject(name, time) {
-
+        this->type = "Required Subject";
+    }
+    RequiredSubject(std::string name, std::vector<int> time, int speciall_credit) : Subject(name, time) {
+        this->type = "Required Subject";
+        this->credit = speciall_credit;
     }
     ~RequiredSubject() override = default;
-    std::string GetType() override {
-        return type;
-    }
     std::string GetColor() override {
         return Color::YELLOW;
     }

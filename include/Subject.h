@@ -4,19 +4,23 @@
 
 #ifndef OOP_SUBJECT_H
 #define OOP_SUBJECT_H
-
+#include <vector>
 #include <string>
 
 class Subject {
 private:
     std::string name;
-    int credit;
+
     std::string color;
     std::vector<int> time;
+protected:
+    int credit;
+    std::string type;
 public:
     Subject(std::string name, std::vector<int> time){
         this->name = name;
         this->time = time;
+        this->credit = time.size();
     }
     virtual ~Subject() = default;
     std::string GetName(){
@@ -28,7 +32,11 @@ public:
     std::vector<int> GetTime(){
         return time;
     }
-    virtual std::string GetType() = 0;
+
+
+    std::string GetType(){
+        return this->type;
+    }
     virtual std::string GetColor(){
         return "\033[0m";
     }

@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <string>
-
+#include <memory>
 #include "Color.h"
 #include "Subject.h"
 
@@ -28,6 +28,11 @@ public:
             std::cout << GetTextLine(timeArray, i * 5) << std::endl;
             std::cout << GetNumberLine(i*5) << std::endl;
             std::cout << GetHeader() << std::endl;
+        }
+    }
+    int GetRequiredCredit(){
+        for(int i=0;i<this->GetTimeArray().size();i++){
+            
         }
     }
 private:
